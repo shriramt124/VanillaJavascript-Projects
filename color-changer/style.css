@@ -1,0 +1,73 @@
+ 
+  @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bungee&family=Finlandica&family=Fraunces:opsz@9..144&family=Lato&family=Montserrat&family=Open+Sans&family=Poppins&family=Readex+Pro&family=Roboto:wght@500&family=Rubik+Glitch&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bungee&family=Finlandica&family=Fraunces:opsz@9..144&family=Lato&family=Montserrat&family=Open+Sans&family=Poppins&family=Readex+Pro&family=Roboto:wght@500&family=Rubik+Glitch&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #35ECE2;
+    height:100vh;
+    width:100%;
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#6c94b4;
+    
+}
+nav h1{
+    font-size:30px;
+    text-transform: capitalize;
+    font-family: 'Rubik Glitch', system-ui;
+}
+nav .btn a{
+    text-decoration: none;
+    color:black;
+    display: inline-block;
+    padding:20px;
+    font-size:22px;
+   text-transform: capitalize;
+}
+nav .btn a:hover{
+    background-color:lightseagreen
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    width:100%;
+    height:50%;
+
+}
+.bg-color{
+    background-color:brown;
+    padding:20px 50px;
+    border-radius:20px;
+    box-shadow:0 0 10px black;;
+}      
+ 
+main button{
+     padding:20px;
+     border-radius:20px;
+     border:none;
+     box-shadow:0 0 10px black;;
+     width:200px;
+     color:black;
+     font-size: larger;
+     text-transform: capitalize;
+
+}
+main button:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+    background-color:antiquewhite;
+}
