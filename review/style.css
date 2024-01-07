@@ -52,7 +52,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: white;
+  background:linear-gradient(to right,white,rgb(200, 191, 191));
   padding: 30px;
   font-family: "Arial", sans-serif;
   border-radius: 20px;
@@ -88,7 +88,7 @@ height:100%;
   font-size: 16px;
   margin-bottom: 20px;
   margin-top: 20px;
-  color:rgb(89, 99, 107);
+  color:#07a007;
 }
 .button-container {
   display: flex;
@@ -104,13 +104,14 @@ cursor: pointer;
   border: none;
   font-size: 30px;
   margin-bottom: 10px;
+  background-color:inherit;
 }
 .random {
   padding: 15px;
   border: 2px solid rgb(6, 196, 221);
   text-transform: capitalize;
   font-weight: bolder;
-  background-color: white;
+  background-color: #87CEFA;
   border-radius: 5px;
 cursor: pointer;
 color:rgb(89, 99, 107);
