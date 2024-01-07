@@ -103,3 +103,14 @@ prevButton.addEventListener("click",()=>{
        currentItem = review.length-1;
      }
 })
+
+random.addEventListener("click",()=>{
+    let randomNumber= Math.floor(Math.random()*review.length)
+    console.log(randomNumber);
+    const item = review[randomNumber];
+    reviewImage.src = item.img;
+    author.textContent = item.name;
+    job.textContent = item.job;
+    info.textContent = item.text;
+
+})
