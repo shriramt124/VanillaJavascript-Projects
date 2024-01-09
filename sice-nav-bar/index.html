@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/2335bdd112.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            "new-md": "820px",
+            // => @media (min-width: 640px) { ... }
+
+            laptop: "1024px",
+            // => @media (min-width: 1024px) { ... }
+
+            desktop: "1280px",
+            // => @media (min-width: 1280px) { ... }
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-screen bg-gray-200">
+    <nav class=" relative navbar flex flex-col  bg-orange-200 h-full gap-8  z-40 transition-all duration-1000  w-[500px] md:w-[1000px]">
+      <div class="p-4">
+        <h1 class="text-3xl font-bold capitalize">
+          coding <span class="text-blue-900 font-bold text-3xl"> Addict</span>
+        </h1>
+      </div>
+      <div class="flex flex-col gap-2 w-full">
+        <a href="#" class="block hover:bg-pink-300 p-4">Home</a>
+        <a href="#" class="block  hover:bg-pink-300 p-4">About</a>
+        <a href="#" class="block  hover:bg-pink-300 p-4">Projects</a>
+        <a href="#" class="block  hover:bg-pink-300 p-4">Contacts</a>
+      </div>
+      <div class="flex flex-row px-6 justify-around items-center text-blue-900 text-2xl mt-44">
+        <div class="icon">
+          <i class="fa fa-facebook"></i>
+        </div>
+        <div class="icon">
+          <i class="fa fa-linkedin"></i>
+        </div>
+        <div class="icon">
+          <i class="fa fa-twitter"></i>
+        </div>
+        <div class="icon">
+          <i class="fa fa-instagram"></i>
+        </div>
+      </div>
+       <div class="icon text-5xl text-red-900 absolute right-6 top-3 cursor-pointer">
+        <i class="fa-solid fa-xmark  palher"></i>
+       </div>
+    </nav>
+    <div class="absolute right-4 top-4 text-blue-900 cursor-pointer">
+        <i class="menue-icon fa-solid fa-bars text-5xl menue-icon"></i>
+      </div>
+  </body>
+  <script>
+    let cross = document.querySelector(".palher")
+    console.log(cross);
+    let menueIcon = document.querySelector(".menue-icon")
+    let navBar = document.querySelector(".navbar")
+    let navLinks = document.querySelectorAll(".navbar a")
+    // Toggle Nav Links
+    let translateFlag = true;
+    cross.addEventListener("click",function(){
+        console.log("clicked")
+            if(translateFlag){
+                navBar.style.transform = `translateX(-1000px)`;
+                translateFlag = false;
+            }
+            else{
+              navBar.style.transform = `translateX(0px)`;
+              translateFlag = true;
+            }
+    })
+
+    menueIcon.addEventListener("click",function(){
+        console.log("clicked")
+            if(translateFlag){
+                navBar.style.transform = `translateX(-1000px)`;
+                translateFlag = false;
+            }
+            else{
+              navBar.style.transform = `translateX(0px)`;
+              translateFlag = true;
+            }
+    })
+  </script>
+</html>
