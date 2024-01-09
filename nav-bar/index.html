@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/2335bdd112.js" crossorigin="anonymous"></script>
+    <script>
+
+
+    tailwind.config = {
+        theme: {
+          screens: {
+      'new-md': '820px',
+      // => @media (min-width: 640px) { ... }
+
+      'laptop': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'desktop': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    },
+        }
+      }
+    </script>
+
+ <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+</head>
+<body class="">
+ <nav class=" navbar flex  justify-between shadow-xl text-left capitalize bg-gray-200 new-md:flex-row">
+  <div class=" p-4">
+    <h1 class="text-2xl text-black font-semibold">coding <span class="text-blue-500 font-bold"> Addict</span></h1>
+  </div>
+  <div class="group hidden new-md:flex new-md:flex-row new-md:gap-2 gap-1 new-md:flex-row  nav-links transition-all duration-1000">
+    <a href="#"class="block  hover:bg-cyan-200 p-4 rounded-md  ">Home</a> 
+    <a href="#"class="block   hover:bg-cyan-200 p-4 rounded-md">About</a>
+    <a href="#"class="block   hover:bg-cyan-200 p-4 rounded-md">Projects</a>
+    <a href="#"class="block  hover:bg-cyan-200 p-4 rounded-md">Contacts</a>
+</div>
+  <div class="icons flex flex-row justify-center items-center text-blue-900 font-semibold">
+    <div class="icon ">
+      <i class="fa fa-facebook p-5 hover:bg-white rounded-md new-md:block hidden cursor-pointer"></i>
+    </div>
+    <div class="icon">
+  <i class="fa fa-linkedin p-5 hover:bg-white rounded-md new-md:block hidden cursor-pointer"></i>
+    </div>
+    <div class="icon ">
+    <i class="fa fa-twitter p-5 hover:bg-white rounded-md new-md:block hidden cursor-pointer"></i>
+    </div>
+    <div class="icon">
+    <i class="fa fa-instagram p-5 hover:bg-white rounded-md new-md:block hidden cursor-pointer"></i>
+    </div>
+    
+  </div>
+  <div class=" block">
+    <i class="menue-icon fa-solid fa-bars menue p-5 hover:text-red-900 rounded-md  new-md:hidden absolute top-0 right-2 cursor-pointer text-xl transition-all"></i>
+    </div>
+ </nav>
+ 
+</body>
+<script>
+  //select humburger menue
+ let navbar = document.querySelector(".navbar")
+ let menue = document.querySelector(".menue-icon");
+ let navLinks  = document.querySelector('.nav-links')
+ //add event click for show or hide menu
+ let flag = true;
+ menue.addEventListener("click", ()=>{
+  menue.style.transform = `rotate(90deg)`;
+  
+      if(flag){
+    navLinks.style.display = "block";
+    flag=false;
+      }else{
+        navLinks.style.display = "none";
+        flag=true;
+      }
+    navbar.style.flexDirection = "column";
+   
+ 
+  
+  navLinks.style.transform = `translate(0px)`;
+ })
+
+
+//  navbar.style.flexDirection = "column";
+ 
+</script>
+</html>
