@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>model js</title>
+    <link rel="stylesheet" href="./output.css">
+    <script src="https://kit.fontawesome.com/2335bdd112.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-[url('../../bg1.png')]  bg-cover bg-no-repeat h-[100vh] w-full ">
+    <div class="container flex justify-center items-center text-center h-full w-full ">
+        <div class="banner bg-slate-50 p-10 rounded-md shadow-lg w-[40%] h-2/5 text-center flex flex-col justify-center gap-10 items-center">
+            <h1 class="capitalize text-5xl font-bold text-blue-900 ">popup project</h1>
+            <button class=" capitalize bg-blue-400 rounded-lg p-4 shadow-md shadow-cyan-950 text-blue-950 font-bold w-[100px] popup-btn">pop up</button>
+        </div>
+    </div>
+  
+  <div class="popup-overlay fixed top-0 left-0 w-full h-full bg-blue-400  items-center text-center grid place-items-center bg-opacity-[0.5] invisible z-0">
+    <div class="popup-container bg-white p-10 rounded-md shadow-lg w-[40%] h-2/5 text-center relative flex justify-center items-center invisible z-10">
+        <h3 class="font-bold capitalize text-2xl text-blue-800 ">popup content</h3>
+       <!-- popup close button -->
+       <div class="close-btn absolute top-2 right-4 cursor-pointer">
+        <i class="fas fa-times text-red-800 text-2xl cross-icon"></i>
+       </div>
+         
+    </div>
+  </div>
+</body>
+<script>
+    //1.select the popup-overlay using query selector
+    //2.select the popup-container using query selector
+    //3.select the cross icon 
+    //4.select popup-btn
+    //5.select close button
+    //6.add eventListener on popup button that whenver i click on popup button the visibility of poppup overlay and popup container becomes visible
+    //7.add eventListener on close button that whenever i click on clise button the visibility becomes invisible
+    let overlay = document.querySelector(".popup-overlay");
+    let container = document.querySelector(".popup-container");
+    let btn = document.querySelector(".popup-btn");
+    let closeBtn = document.querySelector(".close-btn");
+    let crossIcon = document.querySelector(".cross-icon");
+    //add click event listener to button
+     btn.addEventListener("click",()=>{
+        //show the overlay and container when clicked on the button
+        overlay.style.visibility = "visible",
+        container.style.visibility = "visible"
+     });
+
+     crossIcon.addEventListener("click",(e)=>{
+        console.log(e.target);
+        //show the overlay and container when clicked on the button
+        overlay.style.visibility = "hidden",
+        container.style.visibility = "hidden"
+     });
+   
+
+
+</script>
+</html>
