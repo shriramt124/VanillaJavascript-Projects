@@ -79,16 +79,15 @@ const menue = [
 ];
 
 const sectionCenter = document.querySelector(".section-center")
- const btnContainer = document.querySelector(".btn-container")
- 
+const btnContainer = document.querySelector(".btn-container")
+
 window.addEventListener("DOMContentLoaded",()=>{
 displayMenueItems(menue);
 displayButton(menue);
 //selecting the buttons after adding
 const filterBtn = document.querySelectorAll(".filter-btn")
 //filtering the items 
- filterItems(filterBtn);
-
+filterItems(filterBtn);
 })
   
 
