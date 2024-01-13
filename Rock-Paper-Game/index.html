@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       background-color:gray;
+       gap:30px;
+    }
+    .result-field{
+     margin-top:100px;
+     display: flex;
+     flex-direction: column;
+     gap:20px;
+     color:rgb(8, 8, 33);
+     font-size:30px;
+
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        gap:20px;
+
+    }
+    button{
+        padding:20px;
+        border-radius:10px;
+        border:none;
+        cursor:pointer;
+         background-color: rgb(30,90,250);
+         color:white;
+         font-size:25px;
+         text-transform: capitalize;
+    }
+
+</style>
+<body>
+    <div class="result-field">
+     <h2>Computer Choice : <span id="computer-choice"></span></h2>
+     <h2>User Choice : <span id="user-choice"></span></h2>
+     <h2>Result : <span id="result"></span></h2>
+     </div>
+     <div class="buttons">
+     <button id="rock" class="button">rock</button>
+     <button id="paper" class="button">paper</button>
+     <button id="scissors" class="button">scissors</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script src="./script.js">
+  
+</script>
+</html>
