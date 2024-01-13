@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whac a mol game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="highest-score">
+        <p>highest-score: <span id="max-score">0</span></p>
+    </div>
+    <div class="score-container">
+    <h2>your score : </h2>
+    <h2 id="score">0</h2>
+</div>
+<div class="time-container">
+    <h2>Time left : </h2>
+    <h2 id="time-left">60</h2>
+
+</div>
+<div id="levels">
+    <p id="current-level">Level-1</p>
+</div>
+     <div class="grid">
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+        <div class="square" id="9"></div>
+     </div>
+
+      <div class="start-game-page">
+        <p id="final-answer"></p>
+       <button id="start-game">Select Level</button>
+       <div class="level-buttons">
+       <button id="level-1" class="levels">level-1</button>
+       <button id="level-2" class="levels">level-2</button>
+       <button id="level-3" class="levels">level-3</button>
+    </div>
+      </div>
+      
+    <script src="script.js"></script>
+</body>
+</html>

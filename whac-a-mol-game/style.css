@@ -1,0 +1,127 @@
+ *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+ }
+ body{
+    background:linear-gradient(to right,pink,purple);
+    width:100%;
+    height:100vh;
+    position: relative;
+    z-index: 0;
+ }
+ .grid{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   align-content: space-between;
+   flex-wrap: wrap;
+   
+ }
+ .square{
+    width:200px;
+    height:200px;
+    border:2px solid black;
+    background-color: white;
+ }
+ .score-container{
+    
+    text-transform: capitalize;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap:30px;
+    margin-top:20px;
+ }
+ .time-container{
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    gap:30px;
+    margin-top:20px;
+    margin-bottom:20px;
+ }
+ .mole{
+    background-image: url("./mole.jpg");
+    background-position: center;
+    background-size: cover;
+ }
+ img{
+    width:200px;
+    height:200px;
+ }
+
+ .start-game-page{
+    position: fixed;
+    width:100%;
+    height:100%;
+    background-color:rgb(69, 141, 229);
+    top:0;
+    left:0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    flex-direction: column;
+    filter: opacity(0.8);
+    z-index:9;
+    
+ }
+ .start-game-page button{
+    font-size:40px;
+ padding:20px; 
+ background: transparent;
+ border:2px solid rgb(29, 17, 17);
+ color:rgb(70, 63, 63);
+ cursor:pointer;
+ z-index: 1000;
+ background:linear-gradient(to right,rgb(11, 133, 232),rgb(2, 30, 116));
+  border-radius: 10px;
+  color:white;
+ }
+ .start-game-page p{
+    font-size:30px;
+    color:red;
+    text-transform: capitalize;
+    z-index:2000;
+
+ }
+.highest-score{
+ 
+   position: absolute;
+   top:0;
+   left:0;
+   background-color:rgb(232, 162, 223);
+   padding:10px; 
+   border-radius: 5px;
+
+}
+.highest-score p{
+    text-transform: capitalize;
+    color:Green;
+     
+}
+.level-buttons{
+    display: flex;
+   gap:5px;
+}
+.level-buttons button{
+    width:100px;
+    font-size:20px;
+    color:white;
+    padding:10px;
+    border:1px solid red;
+    background-color: rgb(19, 126, 227);
+}
+#levels{
+    position: absolute;
+    top:0;
+    right:0;
+    background-color:rgb(170, 26, 222);
+    padding:10px;
+    width:100px;
+    font-size:20px;
+    text-transform: capitalize;
+}
