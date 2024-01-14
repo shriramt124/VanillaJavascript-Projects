@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image editor</title>
+    <link rel="stylesheet" href="./output.css" />
+    <script
+      src="https://kit.fontawesome.com/2335bdd112.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body class="w-[100%] h-[100vh] bg-black">
+    <div
+      class="container bg-orange-400 flex flex-col lg:flex-row gap-4 justify-between w-full xl:w-[70%] mx-auto mt-8 p-6 rounded-md relative"
+    >
+      <div
+        class="filter-container border-2 border-black w-[95%] lg:w-[40%] flex flex-col gap-6 justify-center mx-auto p-4"
+      >
+        <h1 class="text-3xl capitalize text-black font-semibold">Filter</h1>
+        <div class="button-container flex gap-4 flex-wrap items-center">
+          <button
+            id="saturate"
+            class="filters bg-white p-4 rounded-md hover:bg-orange-500 hover:text-white capitalize"
+          >
+            saturate
+          </button>
+          <button
+            id="brightness"
+            class="filters bg-white p-4 rounded-md hover:bg-orange-500 hover:text-white capitalize"
+          >
+            brightness
+          </button>
+          <button
+            id="invert"
+            class="filters bg-white p-4 rounded-md hover:bg-orange-500 hover:text-white capitalize"
+          >
+            invert
+          </button>
+          <button
+            id="grayscale"
+            class="filters bg-white p-4 rounded-md hover:bg-orange-500 hover:text-white capitalize"
+          >
+            grayscale
+          </button>
+        </div>
+        <div class="active flex flex-col gap-2">
+          <h1 id="active-filter" class="capitalize text-xl">brightness</h1>
+          <input type="range" value="0" id="progress" class="w-[70%]" />
+        </div>
+        <div class="actions flex flex-col gap-6">
+          <h1>rotate and flip</h1>
+          <div class="icons flex gap-4">
+           
+            <img
+              src="/icons8-rotate-left-50.png"
+              alt="" id="left-rotate"
+              class="bg-white p-2 rounded-md w-[50px] h-[50px] md:h-[60px] md:w-[60px]"
+            />
+            <img
+              src="/icons8-rotate-right-50.png"
+              alt="" id="right-rotate"
+              class="bg-white p-2 rounded-md w-[50px] h-[50px] md:h-[60px] md:w-[60px]"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="image-container w-[95%] lg:w-[50%] m-auto flex flex-col gap-6"
+      >
+        <img alt="" class="w-full h-[450px] rounded-lg" id="filter-image" />
+        <div class="footer flex justify-between items-center">
+          <div class="choose-image">
+            <label for="file" class="bg-white p-4 rounded-md"
+              >choose Image</label
+            >
+            <input type="file" value="choose image" class="hidden" id="file" />
+          </div>
+          <div class="save-Image">
+            <button class="bg-white cursor-pointer rounded-md p-4 w-[150px]">
+              save Image
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.querySelector("#file");
+      const progressBar = document.getElementById("progress");
+      const activeFilter = document.getElementById("active-filter");
+      const filtersButton = document.querySelectorAll(".filters");
+
+      const appliedFilters = [];
+
+      // Function to update the filter value based on the progress bar
+      progressBar.addEventListener("input", (e) => {
+        const currentFilterName = activeFilter.innerText.toLowerCase();
+        const currentFilter = appliedFilters.find(
+          (filter) => filter.name === currentFilterName
+        );
+
+        if (currentFilter) {
+          currentFilter.value = e.target.value;
+          applyAllFiltersOnImage();
+        }
+
+        console.log(appliedFilters);
+      });
+
+      // Function to apply all filters to the image
+      function applyAllFiltersOnImage() {
+        let filterString = "";
+
+        appliedFilters.forEach((filter) => {
+          filterString += `${filter.name}(${filter.value}${
+            filter.unit || ""
+          }) `;
+        });
+
+        const image = document.querySelector("#filter-image");
+        image.style.filter = filterString.trim(); // Trim to remove trailing space
+      }
+
+      // Function to handle filter button click
+      filtersButton.forEach((filter) => {
+        filter.addEventListener("click", (e) => {
+          activeFilter.innerText = e.target.id;
+
+          // Check if the filter is already applied
+          let flag = false;
+          for (let ele of appliedFilters) {
+            if (ele.name.includes(e.target.id)) {
+              flag = true;
+              break;
+            }
+          }
+
+          // If the filter is not applied, add it with a default value
+          if (!flag) {
+            appliedFilters.push({ name: e.target.id, value: 0 });
+          }
+
+          applyAllFiltersOnImage();
+        });
+      });
+
+      // Function to handle file input change
+      fileInput.addEventListener("change", (e) => {
+        let file = e.target.files[0];
+
+        if (!file) {
+          console.log("No file selected");
+          return;
+        }
+
+        let reader = new FileReader();
+        reader.onload = function () {
+          document.querySelector("#filter-image").src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // Function to handle save button click
+      const saveImageButton = document.querySelector(".save-Image button");
+      saveImageButton.addEventListener("click", () => {
+        const image = document.querySelector("#filter-image");
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        ctx.drawImage(image, 0, 0, image.width, image.height);
+
+        const dataURL = canvas.toDataURL("image/jpeg");
+        const link = document.createElement("a");
+        link.href = dataURL;
+        link.download = "filtered-image.jpg";
+        link.click();
+      });
+
+ const rightRotate = document.getElementById("right-rotate")
+ const leftRotate = document.getElementById("left-rotate")
+ console.log(rightRotate,rightRotate);
+ // Add event listener for the rotate buttons
+ let image = document.querySelector("#filter-image");
+ let rightRotateAngle = 0;
+ rightRotate.addEventListener('click',()=>{
+    if(rightRotateAngle>360){
+        rightRotateAngle = 0;
+    }
+    rightRotateAngle+=90;
+   image.style.transform=`rotate(${rightRotateAngle}deg)`;
+ })
+let leftRotateAngle = 0;
+ leftRotate.addEventListener('click',()=>{
+    
+    rightRotateAngle-=90;
+   image.style.transform=`rotate(${rightRotateAngle}deg)`;
+ })
+    </script>
+  </body>
+</html>
